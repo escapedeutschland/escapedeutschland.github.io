@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>escape.deutschland — Paraguay Guides von Maxime</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:       #0D1B2A;
+    --parchment: #F5F0E8;
+    --sand:      #E8DFC8;
+    --rust:      #C4541A;
+    --rust-light:#E8733A;
+    --jungle:    #1A4731;
+    --jungle-mid:#27AE60;
+    --gold:      #D4A843;
+    --mist:      #8B9BAA;
+    --white:     #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--ink);
+    color: var(--parchment);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ─────────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(196,84,26,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(26,71,49,0.2) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--rust-light);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--rust-light);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 5vw, 76px);
+    font-weight: 900;
+    line-height: 1.0;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .hero-title span {
+    color: var(--rust-light);
+    font-style: italic;
+  }
+
+  .hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 2.5vw, 30px);
+    font-weight: 400;
+    color: var(--sand);
+    margin-bottom: 32px;
+    line-height: 1.3;
+  }
+
+  .hero-body {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--mist);
+    max-width: 480px;
+    margin-bottom: 48px;
+  }
+
+  .hero-body strong { color: var(--parchment); }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--rust);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 16px 32px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-primary:hover {
+    background: var(--rust-light);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(196,84,26,0.35);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--parchment);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 16px 32px;
+    border-radius: 2px;
+    border: 1px solid rgba(245,240,232,0.25);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--parchment);
+    background: rgba(245,240,232,0.06);
+  }
+
+  .hero-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 80px 60px 40px;
+    z-index: 2;
+  }
+
+  /* Product stack visual */
+  .product-stack {
+    position: relative;
+    width: 320px;
+    height: 420px;
+  }
+
+  .product-card {
+    position: absolute;
+    width: 260px;
+    border-radius: 4px;
+    padding: 28px;
+    transition: transform 0.3s ease;
+  }
+
+  .product-card:nth-child(1) {
+    background: var(--jungle);
+    top: 0; left: 40px;
+    transform: rotate(-4deg);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  .product-card:nth-child(2) {
+    background: #1A3A5C;
+    top: 60px; left: 20px;
+    transform: rotate(-1.5deg);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  .product-card:nth-child(3) {
+    background: linear-gradient(135deg, #2C1810, #4A2215);
+    top: 120px; left: 0px;
+    transform: rotate(1deg);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    border: 1px solid rgba(212,168,67,0.3);
+  }
+
+  .product-stack:hover .product-card:nth-child(1) { transform: rotate(-6deg) translateY(-8px); }
+  .product-stack:hover .product-card:nth-child(2) { transform: rotate(-2deg) translateY(-4px); }
+  .product-stack:hover .product-card:nth-child(3) { transform: rotate(2deg) translateY(4px); }
+
+  .card-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    opacity: 0.7;
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .card-price {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .card-price.free { color: var(--jungle-mid); }
+
+  /* ── NAV ──────────────────────────────────────────────── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(13,27,42,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(245,240,232,0.08);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+  }
+
+  .nav-logo span { color: var(--rust-light); }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--mist);
+    text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: 0.3px;
+  }
+
+  .nav-links a:hover { color: var(--parchment); }
+
+  .nav-cta {
+    background: var(--rust);
+    color: var(--white) !important;
+    padding: 10px 22px;
+    border-radius: 2px;
+    font-weight: 600 !important;
+  }
+
+  .nav-cta:hover { background: var(--rust-light); color: var(--white) !important; }
+
+  /* ── SECTION COMMON ───────────────────────────────────── */
+  section { padding: 100px 80px; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--rust-light);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--rust-light);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 4vw, 54px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--rust-light);
+  }
+
+  .section-body {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--mist);
+    max-width: 600px;
+  }
+
+  /* ── ÜBER MICH ────────────────────────────────────────── */
+  .about {
+    background: rgba(245,240,232,0.03);
+    border-top: 1px solid rgba(245,240,232,0.08);
+    border-bottom: 1px solid rgba(245,240,232,0.08);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .stat-box {
+    padding: 24px;
+    border: 1px solid rgba(245,240,232,0.1);
+    border-radius: 2px;
+    background: rgba(245,240,232,0.03);
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--rust-light);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--mist);
+    font-weight: 400;
+  }
+
+  .about-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--sand);
+    border-left: 3px solid var(--rust);
+    padding-left: 28px;
+    margin-top: 40px;
+  }
+
+  /* ── PRODUKTE ─────────────────────────────────────────── */
+  .products { max-width: 1200px; margin: 0 auto; }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 60px;
+  }
+
+  .product {
+    border-radius: 4px;
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+
+  .product:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+  }
+
+  .product-free {
+    background: rgba(26,71,49,0.3);
+    border: 1px solid rgba(39,174,96,0.2);
+  }
+
+  .product-free::before { background: var(--jungle-mid); }
+
+  .product-paid {
+    background: rgba(26,58,92,0.4);
+    border: 1px solid rgba(46,109,164,0.3);
+  }
+
+  .product-paid::before { background: #2E6DA4; }
+
+  .product-coming {
+    background: rgba(212,168,67,0.06);
+    border: 1px solid rgba(212,168,67,0.2);
+  }
+
+  .product-coming::before { background: var(--gold); }
+
+  .product-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    width: fit-content;
+  }
+
+  .badge-free { background: rgba(39,174,96,0.2); color: var(--jungle-mid); }
+  .badge-paid { background: rgba(46,109,164,0.2); color: #5BA3D9; }
+  .badge-coming { background: rgba(212,168,67,0.15); color: var(--gold); }
+
+  .product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  .product-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--mist);
+    flex: 1;
+    margin-bottom: 28px;
+  }
+
+  .product-features {
+    list-style: none;
+    margin-bottom: 32px;
+  }
+
+  .product-features li {
+    font-size: 13px;
+    color: var(--sand);
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(245,240,232,0.06);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .product-features li::before {
+    content: '→';
+    color: var(--rust-light);
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+
+  .product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+
+  .product-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--white);
+  }
+
+  .product-price.is-free { color: var(--jungle-mid); font-size: 22px; }
+  .product-price.is-coming { color: var(--gold); font-size: 18px; }
+
+  .btn-product {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-product-free {
+    background: var(--jungle);
+    color: var(--white);
+  }
+  .btn-product-free:hover { background: var(--jungle-mid); }
+
+  .btn-product-paid {
+    background: var(--rust);
+    color: var(--white);
+  }
+  .btn-product-paid:hover { background: var(--rust-light); box-shadow: 0 8px 24px rgba(196,84,26,0.4); }
+
+  .btn-product-coming {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid rgba(212,168,67,0.4);
+  }
+  .btn-product-coming:hover { background: rgba(212,168,67,0.1); }
+
+  /* ── WHY ──────────────────────────────────────────────── */
+  .why {
+    background: rgba(196,84,26,0.06);
+    border-top: 1px solid rgba(196,84,26,0.15);
+    border-bottom: 1px solid rgba(196,84,26,0.15);
+  }
+
+  .why-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .why-item {
+    padding: 28px 24px;
+    background: rgba(245,240,232,0.03);
+    border: 1px solid rgba(245,240,232,0.08);
+    border-radius: 2px;
+  }
+
+  .why-icon {
+    font-size: 24px;
+    margin-bottom: 14px;
+  }
+
+  .why-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .why-text {
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--mist);
+  }
+
+  /* ── FREEBIE CTA ──────────────────────────────────────── */
+  .freebie-cta {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .freebie-box {
+    background: rgba(26,71,49,0.2);
+    border: 1px solid rgba(39,174,96,0.25);
+    border-radius: 4px;
+    padding: 60px;
+    margin-top: 48px;
+  }
+
+  .freebie-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .freebie-box p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--mist);
+    margin-bottom: 36px;
+  }
+
+  .email-form {
+    display: flex;
+    gap: 12px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .email-input {
+    flex: 1;
+    background: rgba(245,240,232,0.08);
+    border: 1px solid rgba(245,240,232,0.2);
+    border-radius: 2px;
+    padding: 14px 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--white);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .email-input::placeholder { color: var(--mist); }
+  .email-input:focus { border-color: var(--jungle-mid); }
+
+  .email-btn {
+    background: var(--jungle);
+    color: var(--white);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+
+  .email-btn:hover { background: var(--jungle-mid); }
+
+  /* ── FOOTER ───────────────────────────────────────────── */
+  footer {
+    padding: 48px 80px;
+    border-top: 1px solid rgba(245,240,232,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .footer-logo span { color: var(--rust-light); }
+
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+    color: var(--mist);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--parchment); }
+
+  .footer-copy {
+    font-size: 12px;
+    color: var(--mist);
+    opacity: 0.6;
+  }
+
+  /* ── ANIMATIONS ───────────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.6s ease 0.1s both; }
+  .hero-title   { animation: fadeUp 0.6s ease 0.2s both; }
+  .hero-subtitle{ animation: fadeUp 0.6s ease 0.3s both; }
+  .hero-body    { animation: fadeUp 0.6s ease 0.4s both; }
+  .hero-cta-group{ animation: fadeUp 0.6s ease 0.5s both; }
+  .hero-right   { animation: fadeUp 0.6s ease 0.6s both; }
+
+  /* ── RESPONSIVE ───────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    nav { padding: 20px 40px; }
+    section { padding: 80px 40px; }
+    .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 100px; }
+    .hero-left { padding: 60px 40px 40px; }
+    .hero-right { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .products-grid { grid-template-columns: 1fr; }
+    .why-inner { grid-template-columns: 1fr; gap: 48px; }
+    .email-form { flex-direction: column; }
+    footer { flex-direction: column; gap: 24px; text-align: center; }
+    .nav-links { display: none; }
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">escape<span>.</span>deutschland</a>
+  <ul class="nav-links">
+    <li><a href="#ueber-mich">Über mich</a></li>
+    <li><a href="#produkte">Guides</a></li>
+    <li><a href="#freebie">Gratis Guide</a></li>
+    <li><a href="#produkte" class="nav-cta">Jetzt kaufen</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding-top: 80px;">
+  <div class="hero-left">
+    <div class="hero-eyebrow">@escape.deutschland &nbsp;·&nbsp; Paraguay 2026</div>
+    <h1 class="hero-title">
+      Raus aus<br>
+      <span>Deutschland.</span><br>
+      Rein ins Leben.
+    </h1>
+    <p class="hero-subtitle">Praxiswissen für deinen Neustart in Paraguay.</p>
+    <p class="hero-body">
+      Ich bin Maxime. Vor 3 Monaten habe ich alles verkauft, alle Verbindungen gekappt
+      und bin nach Paraguay ausgewandert — in <strong>2 Monaten Vorbereitung.</strong>
+      Was ich dabei gelernt habe, steckt in diesen Guides.
+    </p>
+    <div class="hero-cta-group">
+      <a href="#produkte" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        Guides ansehen
+      </a>
+      <a href="#freebie" class="btn-secondary">
+        Gratis Guide holen →
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="product-stack">
+      <div class="product-card">
+        <div class="card-tag">Freebie</div>
+        <div class="card-title">Meine Paraguay Story</div>
+        <div class="card-price free">Kostenlos</div>
+      </div>
+      <div class="product-card">
+        <div class="card-tag">Freebie</div>
+        <div class="card-title">Ortsunabhängig Geld verdienen</div>
+        <div class="card-price free">Kostenlos</div>
+      </div>
+      <div class="product-card">
+        <div class="card-tag" style="color: var(--gold);">Hauptprodukt</div>
+        <div class="card-title">Paraguay Auswanderguide 2026</div>
+        <div class="card-price">27 €</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÜBER MICH -->
+<section class="about" id="ueber-mich">
+  <div class="about-grid">
+    <div class="reveal">
+      <div class="section-label">Wer bin ich</div>
+      <h2 class="section-title">Maxime.<br><em>Auswanderer.</em><br>Content Creator.</h2>
+      <div class="about-stats">
+        <div class="stat-box">
+          <div class="stat-number">15K+</div>
+          <div class="stat-label">Follower TikTok & Instagram</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Monate in Paraguay</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Monate Vorbereitung</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">500€</div>
+          <div class="stat-label">Monatliche Lebenskosten</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="section-body" style="margin-bottom: 24px;">
+        Ich habe in Deutschland eine Modemarke aufgebaut, sie mit monatlicher Gewinnbeteiligung verkauft
+        und bin danach in 2 Monaten nach Paraguay ausgewandert. Kein 1-Jahres-Plan. Keine perfekte Vorbereitung.
+        Echte Entscheidungen, echte Fehler — und echtes Wissen das ich jetzt teile.
+      </p>
+      <p class="section-body" style="margin-bottom: 24px;">
+        Mein Content auf TikTok und Instagram dokumentiert alles: den Visa-Prozess, die Kosten,
+        den Alltag, die Überraschungen. Keine Hochglanz-Version — die echte.
+      </p>
+      <blockquote class="about-quote">
+        „Paraguay ist kein Notfallplan. Es ist eine bewusste Entscheidung für Freiheit,
+        niedrige Steuern und ein Leben das ich selbst gestalte."
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUKTE -->
+<section id="produkte" style="max-width: 1360px; margin: 0 auto; padding: 100px 80px;">
+  <div class="reveal" style="text-align: center; margin-bottom: 16px;">
+    <div class="section-label" style="justify-content: center;">Meine Guides</div>
+  </div>
+  <h2 class="section-title reveal" style="text-align: center; margin-bottom: 12px;">
+    Wissen das sich <em>wirklich</em> auszahlt.
+  </h2>
+  <p class="section-body reveal" style="text-align: center; margin: 0 auto 60px; max-width: 560px;">
+    Kein Hochglanz. Kein Bullshit. Echte Erfahrungen aus erster Hand —
+    strukturiert damit du schneller und besser entscheidest als ich es getan habe.
+  </p>
+
+  <div class="products-grid">
+
+    <!-- Freebie 1 -->
+    <div class="product product-free reveal">
+      <span class="product-badge badge-free">Kostenlos</span>
+      <h3 class="product-name">Paraguay in 90 Tagen — Was ich als Auswanderer wirklich erlebt habe</h3>
+      <p class="product-desc">
+        Warum ich wirklich gegangen bin. Wie ich in 2 Monaten alles aufgelöst habe.
+        Was mich überrascht hat. Meine persönliche Geschichte — ungefiltert.
+      </p>
+      <ul class="product-features">
+        <li>Meine echten Gründe für die Auswanderung</li>
+        <li>Was ich in 2 Monaten erledigt habe</li>
+        <li>Erste Eindrücke & ehrliche Überraschungen</li>
+        <li>Ideal als Einstieg in meine Welt</li>
+      </ul>
+      <div class="product-footer">
+        <div class="product-price is-free">Gratis</div>
+        <a href="https://escapedeutschland.gumroad.com/l/bhumij?layout=profile" target="_blank" class="btn-product btn-product-free">Herunterladen →</a>
+      </div>
+    </div>
+
+    <!-- Hauptprodukt -->
+    <div class="product product-paid reveal" style="transform: translateY(-12px); border-color: rgba(46,109,164,0.5);">
+      <span class="product-badge badge-paid">⭐ Hauptprodukt</span>
+      <h3 class="product-name">Paraguay Auswanderguide 2026</h3>
+      <p class="product-desc">
+        Der vollständige Schritt-für-Schritt Guide + Workbook für deine Auswanderung nach Paraguay.
+        Von der Entscheidung bis zur Cédula — konkret und umsetzbar.
+      </p>
+      <ul class="product-features">
+        <li>Selbstcheck: Bist du wirklich bereit?</li>
+        <li>Deutschland sauber & steuersicher verlassen</li>
+        <li>Dokumente & Apostille — Schritt für Schritt</li>
+        <li>Cédula-Prozess mit Zeitplan-Template</li>
+        <li>Budgetrechner mit echten Zahlen</li>
+        <li>Workbook zum Ausfüllen & Planen</li>
+      </ul>
+      <div class="product-footer">
+        <div class="product-price">26,99 €</div>
+        <a href="https://escapedeutschland.gumroad.com/l/gefqlm?layout=profile" target="_blank" class="btn-product btn-product-paid">Jetzt kaufen →</a>
+      </div>
+    </div>
+
+    <!-- Freebie 2 -->
+    <div class="product product-free reveal">
+      <span class="product-badge badge-free">Kostenlos</span>
+      <h3 class="product-name">Ortsunabhängig Geld verdienen</h3>
+      <p class="product-desc">
+        Der Überblick über die realistischen Online-Business Modelle —
+        mit ehrlichen Vor- und Nachteilen, Vergleichstabellen und deinem persönlichen 90-Tage-Plan.
+      </p>
+      <ul class="product-features">
+        <li>SMMA, digitale Produkte, Freelancing im Vergleich</li>
+        <li>Welches Modell passt zu dir? (Workbook)</li>
+        <li>Die häufigsten Fehler die Auswanderer machen</li>
+        <li>90-Tage-Aktionsplan zum Ausfüllen</li>
+      </ul>
+      <div class="product-footer">
+        <div class="product-price is-free">Gratis</div>
+        <a href="https://escapedeutschland.gumroad.com/l/wddowp?layout=profile" target="_blank" class="btn-product btn-product-free">Herunterladen →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WARUM -->
+<section class="why">
+  <div class="why-inner">
+    <div class="reveal">
+      <div class="section-label">Warum meine Guides</div>
+      <h2 class="section-title" style="font-size: 38px;">Kein<br><em>Theorie-<br>Wissen.</em></h2>
+      <p class="section-body" style="margin-top: 20px;">
+        Ich habe es selbst durchlebt — den Stress, die Fehler, die Überraschungen.
+        Das steckt in diesen Guides.
+      </p>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-item">
+        <div class="why-icon">🎯</div>
+        <div class="why-title">Konkret & umsetzbar</div>
+        <div class="why-text">Kein theoretisches Wissen. Checklisten, Templates und Workbooks die du direkt nutzen kannst.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">🔍</div>
+        <div class="why-title">Ehrlich & ungefiltert</div>
+        <div class="why-text">Ich schreibe über Fehler und Überraschungen — nicht nur über das was gut gelaufen ist.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">⚡</div>
+        <div class="why-title">Aus erster Hand</div>
+        <div class="why-text">Kein recherchiertes Internet-Wissen. Echte Erfahrungen aus 3 Monaten Paraguay-Alltag.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">🛡️</div>
+        <div class="why-title">Kein Scam</div>
+        <div class="why-text">Ich verkaufe nur was ich wirklich kenne. Wo ich keine Erfahrung habe, sage ich es direkt.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FREEBIE CTA -->
+<section id="freebie" style="padding: 100px 80px;">
+  <div class="freebie-cta reveal">
+    <div class="section-label" style="justify-content: center;">Gratis starten</div>
+    <h2 class="section-title" style="text-align: center;">
+      Hol dir beide<br><em>Gratis-Guides.</em>
+    </h2>
+    <p class="section-body" style="text-align: center; margin: 0 auto;">
+      Trag deine E-Mail ein und bekomme sofort beide Freebies — und wirst als Erster informiert
+      wenn mein nächstes Produkt erscheint.
+    </p>
+
+    <div class="freebie-box">
+      <h3>Zwei Guides. Sofort. Kostenlos.</h3>
+      <p>
+        „Meine Paraguay Story" + „Ortsunabhängig Geld verdienen" —
+        direkt in dein Postfach. Kein Spam, kein Bullshit.
+        Nur Inhalte die wirklich helfen.
+      </p>
+      <div class="email-form">
+        <input type="email" class="email-input" placeholder="deine@email.de">
+        <button class="email-btn">Jetzt holen →</button>
+      </div>
+      <p style="font-size: 12px; color: var(--mist); margin-top: 16px; opacity: 0.7;">
+        Kein Spam. Jederzeit abmeldbar. Deine Daten werden nicht weitergegeben.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">escape<span>.</span>deutschland</div>
+  <ul class="footer-links">
+    <li><a href="https://tiktok.com/@escape.deutschland" target="_blank">TikTok</a></li>
+    <li><a href="https://instagram.com/escape.deutschland" target="_blank">Instagram</a></li>
+    <li><a href="#produkte">Guides</a></li>
+    <li><a href="#ueber-mich">Über mich</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 escape.deutschland · Alle Rechte vorbehalten</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Email form
+  document.querySelector('.email-btn').addEventListener('click', () => {
+    const email = document.querySelector('.email-input').value;
+    if (email && email.includes('@')) {
+      document.querySelector('.freebie-box').innerHTML = `
+        <h3 style="color: var(--jungle-mid);">✓ Danke!</h3>
+        <p>Deine Guides sind unterwegs. Schau in dein Postfach — und falls du nichts siehst, check den Spam-Ordner.</p>
+        <p style="margin-top: 16px; font-size: 14px;">Folg mir auch auf <a href="https://instagram.com/escape.deutschland" style="color: var(--rust-light);">Instagram</a> & <a href="https://tiktok.com/@escape.deutschland" style="color: var(--rust-light);">TikTok</a> für tägliche Updates aus Paraguay.</p>
+      `;
+    } else {
+      document.querySelector('.email-input').style.borderColor = 'var(--rust)';
+    }
+  });
+</script>
+</body>
+</html>
