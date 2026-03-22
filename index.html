@@ -756,6 +756,145 @@
 
   .email-btn:hover { background: var(--jungle-mid); }
 
+  /* ── SERVICE ──────────────────────────────────────────── */
+  .service-section {
+    background: rgba(196,84,26,0.04);
+    border-top: 1px solid rgba(196,84,26,0.12);
+    border-bottom: 1px solid rgba(196,84,26,0.12);
+  }
+
+  .service-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .service-card {
+    padding: 36px 32px;
+    background: rgba(245,240,232,0.03);
+    border: 1px solid rgba(245,240,232,0.08);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    border-color: rgba(212,168,67,0.25);
+  }
+
+  .service-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .service-price-label {
+    font-size: 11px;
+    color: var(--mist);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .service-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .service-desc {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--mist);
+    margin-bottom: 24px;
+    flex: 1;
+  }
+
+  .service-features {
+    list-style: none;
+    margin-bottom: 32px;
+  }
+
+  .service-features li {
+    font-size: 13px;
+    color: var(--sand);
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(245,240,232,0.06);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .service-features li::before {
+    content: '✓';
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .btn-service {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 13px 24px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    background: var(--rust);
+    color: var(--white);
+    width: 100%;
+    margin-top: auto;
+  }
+
+  .btn-service:hover {
+    background: var(--rust-light);
+    box-shadow: 0 8px 24px rgba(196,84,26,0.4);
+  }
+
+  .service-note {
+    font-size: 13px;
+    color: var(--mist);
+    line-height: 1.7;
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(245,240,232,0.07);
+  }
+
+  .service-note strong { color: var(--sand); }
+
   /* ── FOOTER ───────────────────────────────────────────── */
   footer {
     padding: 48px 80px;
@@ -812,12 +951,14 @@
   @media (max-width: 1024px) {
     nav { padding: 16px 32px; }
     section { padding: 72px 32px; }
+    #service { padding: 72px 32px !important; }
     .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 90px; }
     .hero-left { padding: 52px 32px 40px; }
     .hero-right { display: none; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .products-grid { grid-template-columns: 1fr; gap: 24px; }
     .why-inner { grid-template-columns: 1fr; gap: 40px; }
+    .service-inner { grid-template-columns: 1fr; gap: 40px; }
     .why-grid { grid-template-columns: 1fr 1fr; }
     .email-form { flex-direction: column; }
     footer { flex-direction: column; gap: 20px; text-align: center; }
@@ -870,6 +1011,15 @@
     .freebie-box { padding: 28px 20px; margin-top: 28px; }
     .freebie-box h3 { font-size: 24px; margin-bottom: 12px; }
     .freebie-box p { font-size: 14px; margin-bottom: 0; }
+    .service-inner { grid-template-columns: 1fr; gap: 32px; }
+    .service-grid { grid-template-columns: 1fr; gap: 16px; }
+    .service-card { padding: 28px 22px; }
+    .service-price { font-size: 30px; }
+    .service-name { font-size: 18px; }
+    .service-desc { font-size: 13px; }
+    .service-features li { font-size: 13px; padding: 6px 0; }
+    .btn-service { font-size: 14px; padding: 13px 20px; }
+    #service { padding: 56px 20px !important; }
     .freebie-box iframe { min-height: 220px; }
 
     .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
@@ -898,6 +1048,7 @@
   <ul class="nav-links">
     <li><a href="#ueber-mich">Über mich</a></li>
     <li><a href="#produkte">Guides</a></li>
+    <li><a href="#service">Done for you</a></li>
     <li><a href="#freebie">Gratis Guide</a></li>
     <li><a href="#produkte" class="nav-cta">Jetzt kaufen</a></li>
   </ul>
@@ -1134,6 +1285,80 @@
         <div class="why-title">Kein Scam</div>
         <div class="why-text">Ich verkaufe nur was ich wirklich kenne. Wo ich keine Erfahrung habe, sage ich es direkt.</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE -->
+<section id="service" class="service-section" style="padding: 100px 80px;">
+  <div class="service-inner">
+
+    <!-- LEFT: Intro -->
+    <div class="service-intro reveal">
+      <div class="section-label">Done for you</div>
+      <h2 class="section-title" style="font-size: 38px;">
+        Ich baue es<br><em>für dich<br>auf.</em>
+      </h2>
+      <p class="section-body" style="margin-top: 20px;">
+        Du hast das Wissen. Ich baue das System darum herum — Landing Page, Gumroad,
+        E-Mail-Automation. Alles live, alles fertig.
+      </p>
+      <p class="section-body" style="margin-top: 16px;">
+        Starte mit einem kostenlosen 30-Minuten-Gespräch. Keine Verpflichtung.
+      </p>
+      <div class="service-note">
+        <strong>Nicht sicher welches Paket passt?</strong><br>
+        Im Erstgespräch schauen wir gemeinsam was du brauchst —
+        und ob wir zusammenpassen.
+      </div>
+    </div>
+
+    <!-- RIGHT: 2 Cards -->
+    <div class="service-grid reveal">
+
+      <!-- Paket A -->
+      <div class="service-card">
+        <div class="service-price">297 €</div>
+        <div class="service-price-label">Einmalig</div>
+        <h3 class="service-name">Landing Page Setup</h3>
+        <p class="service-desc">
+          Professionelle Landing Page — design-fertig, verknüpft mit Gumroad und Brevo,
+          live auf deiner eigenen URL.
+        </p>
+        <ul class="service-features">
+          <li>Landing Page nach deinem Branding</li>
+          <li>Kostenlos gehostet via GitHub Pages</li>
+          <li>Alle Gumroad-Produkte eingebunden</li>
+          <li>Brevo E-Mail-Formular verknüpft</li>
+          <li>Mobil-optimiert & sofort live</li>
+        </ul>
+        <a href="https://calendly.com/maximechristalle/30min" target="_blank" class="btn-service">
+          Gespräch buchen →
+        </a>
+      </div>
+
+      <!-- Paket B -->
+      <div class="service-card">
+        <div class="service-price">697 €</div>
+        <div class="service-price-label">Einmalig · Alles inklusive</div>
+        <h3 class="service-name">Komplettes Digital Business</h3>
+        <p class="service-desc">
+          Du beantwortest meine Fragen — ich baue alles auf.
+          Produkt, Landing Page, Gumroad, E-Mail-Automation. Fertig zum Verkaufen.
+        </p>
+        <ul class="service-features">
+          <li>Digitales Produkt erstellt (PDF Guide / Workbook)</li>
+          <li>Cover & Thumbnail Design</li>
+          <li>Gumroad komplett eingerichtet</li>
+          <li>Landing Page live</li>
+          <li>E-Mail-Sequenz automatisiert</li>
+          <li>Launch-Strategie & Video-Skript</li>
+        </ul>
+        <a href="https://calendly.com/maximechristalle/30min" target="_blank" class="btn-service">
+          Gespräch buchen →
+        </a>
+      </div>
+
     </div>
   </div>
 </section>
