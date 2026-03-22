@@ -395,14 +395,18 @@
 
   .products-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 28px;
     margin-top: 60px;
   }
 
+  .product-pair {
+    display: contents;
+  }
+
   .product {
-    border-radius: 4px;
-    padding: 40px 36px;
+    border-radius: 8px;
+    padding: 48px 40px;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -443,6 +447,48 @@
 
   .product-coming::before { background: var(--gold); }
 
+  .product-premium {
+    background: rgba(212,168,67,0.08);
+    border: 1px solid rgba(212,168,67,0.35);
+  }
+
+  .product-premium::before { background: var(--gold); }
+
+  .badge-premium {
+    background: rgba(212,168,67,0.15);
+    color: var(--gold);
+    border: 1px solid rgba(212,168,67,0.3);
+  }
+
+  .price-old {
+    text-decoration: line-through;
+    font-size: 16px;
+    opacity: 0.45;
+    margin-right: 8px;
+    font-weight: 400;
+  }
+
+  .price-code {
+    display: block;
+    font-size: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  .btn-product-premium {
+    background: var(--gold);
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .btn-product-premium:hover {
+    background: #e8b84d;
+    box-shadow: 0 8px 24px rgba(212,168,67,0.35);
+  }
+
   .product-badge {
     display: inline-block;
     font-size: 10px;
@@ -461,19 +507,19 @@
 
   .product-name {
     font-family: 'Playfair Display', serif;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 700;
     color: var(--white);
     line-height: 1.3;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
   }
 
   .product-desc {
-    font-size: 14px;
-    line-height: 1.7;
+    font-size: 15px;
+    line-height: 1.8;
     color: var(--mist);
     flex: 1;
-    margin-bottom: 28px;
+    margin-bottom: 32px;
   }
 
   .product-features {
@@ -482,10 +528,10 @@
   }
 
   .product-features li {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--sand);
-    padding: 6px 0;
-    border-bottom: 1px solid rgba(245,240,232,0.06);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(245,240,232,0.08);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -726,7 +772,7 @@
     .hero-left { padding: 52px 32px 40px; }
     .hero-right { display: none; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    .products-grid { grid-template-columns: 1fr; gap: 20px; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .why-inner { grid-template-columns: 1fr; gap: 40px; }
     .why-grid { grid-template-columns: 1fr 1fr; }
     .email-form { flex-direction: column; }
@@ -911,7 +957,9 @@
 
   <div class="products-grid">
 
-    <!-- Freebie 1 -->
+    <!-- Reihe 1: Freebie Story + Auswanderguide -->
+
+    <!-- Freebie 1 — Paraguay Story -->
     <div class="product product-free reveal">
       <span class="product-badge badge-free">Kostenlos</span>
       <h3 class="product-name">Paraguay in 90 Tagen — Was ich als Auswanderer wirklich erlebt habe</h3>
@@ -931,9 +979,9 @@
       </div>
     </div>
 
-    <!-- Hauptprodukt -->
-    <div class="product product-paid reveal" style="transform: translateY(-12px); border-color: rgba(46,109,164,0.5);">
-      <span class="product-badge badge-paid">⭐ Hauptprodukt</span>
+    <!-- Kostenpflichtiger Auswanderguide -->
+    <div class="product product-paid reveal">
+      <span class="product-badge badge-paid">⭐ Bestseller</span>
       <h3 class="product-name">Paraguay Auswanderguide 2026</h3>
       <p class="product-desc">
         Der vollständige Schritt-für-Schritt Guide + Workbook für deine Auswanderung nach Paraguay.
@@ -953,7 +1001,9 @@
       </div>
     </div>
 
-    <!-- Freebie 2 -->
+    <!-- Reihe 2: Freebie Business + Premium Paket -->
+
+    <!-- Freebie 2 — Online Geld verdienen -->
     <div class="product product-free reveal">
       <span class="product-badge badge-free">Kostenlos</span>
       <h3 class="product-name">Ortsunabhängig Geld verdienen</h3>
@@ -970,6 +1020,31 @@
       <div class="product-footer">
         <div class="product-price is-free">Gratis</div>
         <a href="https://escapedeutschland.gumroad.com/l/wddowp?layout=profile" target="_blank" class="btn-product btn-product-free">Herunterladen →</a>
+      </div>
+    </div>
+
+    <!-- Premium Paket — Vom Follower zum ersten Euro -->
+    <div class="product product-premium reveal">
+      <span class="product-badge badge-premium">🚀 NEU — Launch-Preis</span>
+      <h3 class="product-name">Vom Follower zum ersten Euro</h3>
+      <p class="product-desc">
+        Das komplette System um dein Wissen in ein digitales Business zu verwandeln —
+        Guide + Workbook + 5 fertige Templates. Für Creator mit 500 bis 50.000 Followern.
+      </p>
+      <ul class="product-features">
+        <li>8-Kapitel Guide + Workbook (21 Seiten)</li>
+        <li>4 fertige E-Mail-Vorlagen für Brevo</li>
+        <li>Landing Page HTML-Vorlage</li>
+        <li>4-Wochen Content-Kalender (Excel)</li>
+        <li>Gumroad Beschreibungs-Template</li>
+        <li>7-Tage Launch-Checkliste</li>
+      </ul>
+      <div class="product-footer">
+        <div class="product-price">
+          <span class="price-old">97 €</span>
+          67 € <span class="price-code">Code: LAUNCH</span>
+        </div>
+        <a href="https://escapedeutschland.gumroad.com/l/zrfhgo?layout=profile" target="_blank" class="btn-product btn-product-premium">Jetzt kaufen →</a>
       </div>
     </div>
 
