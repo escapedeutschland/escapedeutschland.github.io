@@ -1275,6 +1275,11 @@
     .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
     footer { padding: 36px 20px; }
     .section-label { font-size: 10px; letter-spacing: 3px; }
+
+    /* Buch-Karte mobile */
+    .buch-card { grid-template-columns: 1fr !important; gap: 24px !important; padding: 28px 20px !important; }
+    .buch-preis { text-align: left !important; }
+    .buch-btn { width: 100% !important; }
   }
 
   /* Scroll reveal */
@@ -1737,7 +1742,7 @@
 
   <!-- Buch-Empfehlung -->
   <div style="max-width: 1200px; margin: 56px auto 0; position: relative; z-index: 1;" class="reveal">
-    <div style="
+    <div class="buch-card" style="
       background: rgba(196,152,58,0.07);
       border: 1px solid rgba(196,152,58,0.3);
       border-radius: 4px;
@@ -1790,7 +1795,7 @@
         </p>
       </div>
 
-      <div style="text-align: center; flex-shrink: 0;">
+      <div class="buch-preis" style="text-align: center; flex-shrink: 0;">
         <div style="
           font-family: 'Playfair Display', serif;
           font-size: 42px;
@@ -1807,7 +1812,7 @@
           margin-bottom: 20px;
         ">Einmalig</div>
         <!-- HIER deinen Referral-Link vom Paraguay Profi eintragen -->
-        <a href="REFERRAL_LINK_HIER_EINTRAGEN" target="_blank" style="
+        <a href="REFERRAL_LINK_HIER_EINTRAGEN" target="_blank" class="buch-btn" style="
           display: inline-flex;
           align-items: center;
           justify-content: center;
