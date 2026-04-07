@@ -8,20 +8,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink:       #0D1B2A;
-    --parchment: #F5F0E8;
-    --sand:      #E8DFC8;
-    --rust:      #C4541A;
-    --rust-light:#E8733A;
-    --jungle:    #1A4731;
-    --jungle-mid:#27AE60;
-    --gold:      #D4A843;
-    --mist:      #8B9BAA;
-    --white:     #FFFFFF;
+    /* ── Palette angepasst an YouTube Banner ── */
+    --ink:         #080F1C;   /* kühleres, tieferes Navy */
+    --ink-mid:     #0D1828;   /* für Karten-Hintergründe */
+    --parchment:   #F0EBE0;
+    --sand:        #D9CFBA;
+    --rust:        #B84E18;   /* etwas gedämpfter */
+    --rust-light:  #D06830;   /* weniger orange, mehr amber */
+    --jungle:      #1A4731;
+    --jungle-mid:  #27AE60;
+    --gold:        #C4983A;   /* antikes Gold wie im Banner */
+    --gold-light:  #DAAE55;   /* heller Akzent */
+    --gold-muted:  #8A6A28;   /* gedämpft für Borders */
+    --mist:        #7A8EA0;
+    --white:       #FFFFFF;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -45,8 +48,8 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(196,84,26,0.12) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(26,71,49,0.2) 0%, transparent 60%);
+      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(196,152,58,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(26,71,49,0.18) 0%, transparent 60%);
     pointer-events: none;
   }
 
@@ -65,7 +68,7 @@
     font-weight: 600;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: var(--rust-light);
+    color: var(--gold-light);
     margin-bottom: 28px;
     display: flex;
     align-items: center;
@@ -77,7 +80,7 @@
     display: block;
     width: 32px;
     height: 1px;
-    background: var(--rust-light);
+    background: var(--gold);
   }
 
   .hero-title {
@@ -90,7 +93,7 @@
   }
 
   .hero-title span {
-    color: var(--rust-light);
+    color: var(--gold-light);
     font-style: italic;
   }
 
@@ -123,11 +126,11 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: var(--rust);
-    color: var(--white);
+    background: var(--gold);
+    color: var(--ink);
     font-family: 'DM Sans', sans-serif;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 700;
     padding: 16px 32px;
     border-radius: 2px;
     text-decoration: none;
@@ -136,9 +139,9 @@
   }
 
   .btn-primary:hover {
-    background: var(--rust-light);
+    background: var(--gold-light);
     transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(196,84,26,0.35);
+    box-shadow: 0 12px 32px rgba(196,152,58,0.3);
   }
 
   .btn-secondary {
@@ -152,14 +155,14 @@
     font-weight: 500;
     padding: 16px 32px;
     border-radius: 2px;
-    border: 1px solid rgba(245,240,232,0.25);
+    border: 1px solid rgba(196,152,58,0.3);
     text-decoration: none;
     transition: all 0.2s ease;
   }
 
   .btn-secondary:hover {
-    border-color: var(--parchment);
-    background: rgba(245,240,232,0.06);
+    border-color: var(--gold);
+    background: rgba(196,152,58,0.06);
   }
 
   .hero-right {
@@ -201,11 +204,11 @@
   }
 
   .product-card:nth-child(3) {
-    background: linear-gradient(135deg, #2C1810, #4A2215);
+    background: linear-gradient(135deg, #1C1408, #362408);
     top: 120px; left: 0px;
     transform: rotate(1deg);
     box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    border: 1px solid rgba(212,168,67,0.3);
+    border: 1px solid rgba(196,152,58,0.35);
   }
 
   .product-card:nth-child(4) {
@@ -213,7 +216,7 @@
     top: 185px; left: 20px;
     transform: rotate(3.5deg);
     box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    border: 1px solid rgba(212,168,67,0.5);
+    border: 1px solid rgba(196,152,58,0.5);
   }
 
   .product-stack:hover .product-card:nth-child(1) { transform: rotate(-7deg) translateY(-10px); }
@@ -256,9 +259,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(13,27,42,0.85);
+    background: rgba(8,15,28,0.9);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(245,240,232,0.08);
+    border-bottom: 1px solid rgba(196,152,58,0.12);
   }
 
   .nav-logo {
@@ -270,12 +273,13 @@
     letter-spacing: 0.5px;
   }
 
-  .nav-logo span { color: var(--rust-light); }
+  .nav-logo span { color: var(--gold); }
 
   .nav-links {
     display: flex;
-    gap: 36px;
+    gap: 32px;
     list-style: none;
+    align-items: center;
   }
 
   .nav-links a {
@@ -290,14 +294,14 @@
   .nav-links a:hover { color: var(--parchment); }
 
   .nav-cta {
-    background: var(--rust);
-    color: var(--white) !important;
+    background: var(--gold) !important;
+    color: var(--ink) !important;
     padding: 10px 22px;
     border-radius: 2px;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
   }
 
-  .nav-cta:hover { background: var(--rust-light); color: var(--white) !important; }
+  .nav-cta:hover { background: var(--gold-light) !important; }
 
   /* ── SECTION COMMON ───────────────────────────────────── */
   section { padding: 100px 80px; }
@@ -307,7 +311,7 @@
     font-weight: 600;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: var(--rust-light);
+    color: var(--gold);
     margin-bottom: 20px;
     display: flex;
     align-items: center;
@@ -319,7 +323,7 @@
     display: block;
     width: 24px;
     height: 1px;
-    background: var(--rust-light);
+    background: var(--gold);
   }
 
   .section-title {
@@ -333,7 +337,7 @@
 
   .section-title em {
     font-style: italic;
-    color: var(--rust-light);
+    color: var(--gold-light);
   }
 
   .section-body {
@@ -345,9 +349,9 @@
 
   /* ── ÜBER MICH ────────────────────────────────────────── */
   .about {
-    background: rgba(245,240,232,0.03);
-    border-top: 1px solid rgba(245,240,232,0.08);
-    border-bottom: 1px solid rgba(245,240,232,0.08);
+    background: rgba(196,152,58,0.03);
+    border-top: 1px solid rgba(196,152,58,0.1);
+    border-bottom: 1px solid rgba(196,152,58,0.1);
   }
 
   .about-grid {
@@ -368,16 +372,16 @@
 
   .stat-box {
     padding: 24px;
-    border: 1px solid rgba(245,240,232,0.1);
+    border: 1px solid rgba(196,152,58,0.15);
     border-radius: 2px;
-    background: rgba(245,240,232,0.03);
+    background: rgba(196,152,58,0.04);
   }
 
   .stat-number {
     font-family: 'Playfair Display', serif;
     font-size: 36px;
     font-weight: 900;
-    color: var(--rust-light);
+    color: var(--gold-light);
     line-height: 1;
     margin-bottom: 6px;
   }
@@ -394,7 +398,7 @@
     font-style: italic;
     line-height: 1.6;
     color: var(--sand);
-    border-left: 3px solid var(--rust);
+    border-left: 3px solid var(--gold);
     padding-left: 28px;
     margin-top: 40px;
   }
@@ -412,10 +416,6 @@
     margin-right: auto;
   }
 
-  .product-pair {
-    display: contents;
-  }
-
   .product {
     border-radius: 8px;
     padding: 36px 40px;
@@ -429,42 +429,18 @@
   }
 
   .product::before {
-    grid-column: 1 / -1;
-  }
-
-  .product-badge {
-    grid-column: 1 / -1;
-  }
-
-  .product-name {
-    grid-column: 1 / 2;
-    grid-row: 2;
-  }
-
-  .product-desc {
-    grid-column: 1 / 2;
-    grid-row: 3;
-  }
-
-  .product-features {
-    grid-column: 2 / 3;
-    grid-row: 2 / 4;
-    margin-bottom: 0;
-    align-self: start;
-  }
-
-  .product-footer {
-    grid-column: 1 / -1;
-    grid-row: 4;
-    margin-top: 28px;
-  }
-
-  .product::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 3px;
+    grid-column: 1 / -1;
   }
+
+  .product-badge { grid-column: 1 / -1; }
+  .product-name { grid-column: 1 / 2; grid-row: 2; }
+  .product-desc { grid-column: 1 / 2; grid-row: 3; }
+  .product-features { grid-column: 2 / 3; grid-row: 2 / 4; margin-bottom: 0; align-self: start; }
+  .product-footer { grid-column: 1 / -1; grid-row: 4; margin-top: 28px; }
 
   .product:hover {
     transform: translateY(-6px);
@@ -472,37 +448,37 @@
   }
 
   .product-free {
-    background: rgba(26,71,49,0.3);
+    background: rgba(26,71,49,0.25);
     border: 1px solid rgba(39,174,96,0.2);
   }
 
   .product-free::before { background: var(--jungle-mid); }
 
   .product-paid {
-    background: rgba(26,58,92,0.4);
+    background: rgba(26,58,92,0.35);
     border: 1px solid rgba(46,109,164,0.3);
   }
 
   .product-paid::before { background: #2E6DA4; }
 
   .product-coming {
-    background: rgba(212,168,67,0.06);
-    border: 1px solid rgba(212,168,67,0.2);
+    background: rgba(196,152,58,0.06);
+    border: 1px solid rgba(196,152,58,0.2);
   }
 
   .product-coming::before { background: var(--gold); }
 
   .product-premium {
-    background: rgba(212,168,67,0.08);
-    border: 1px solid rgba(212,168,67,0.35);
+    background: rgba(196,152,58,0.07);
+    border: 1px solid rgba(196,152,58,0.3);
   }
 
   .product-premium::before { background: var(--gold); }
 
   .badge-premium {
-    background: rgba(212,168,67,0.15);
-    color: var(--gold);
-    border: 1px solid rgba(212,168,67,0.3);
+    background: rgba(196,152,58,0.15);
+    color: var(--gold-light);
+    border: 1px solid rgba(196,152,58,0.3);
   }
 
   .price-old {
@@ -530,8 +506,8 @@
   }
 
   .btn-product-premium:hover {
-    background: #e8b84d;
-    box-shadow: 0 8px 24px rgba(212,168,67,0.35);
+    background: var(--gold-light);
+    box-shadow: 0 8px 24px rgba(196,152,58,0.35);
   }
 
   .product-badge {
@@ -548,7 +524,7 @@
 
   .badge-free { background: rgba(39,174,96,0.2); color: var(--jungle-mid); }
   .badge-paid { background: rgba(46,109,164,0.2); color: #5BA3D9; }
-  .badge-coming { background: rgba(212,168,67,0.15); color: var(--gold); }
+  .badge-coming { background: rgba(196,152,58,0.15); color: var(--gold); }
 
   .product-name {
     font-family: 'Playfair Display', serif;
@@ -583,7 +559,7 @@
 
   .product-features li::before {
     content: '→';
-    color: var(--rust-light);
+    color: var(--gold);
     font-size: 12px;
     flex-shrink: 0;
   }
@@ -630,20 +606,20 @@
     background: var(--rust);
     color: var(--white);
   }
-  .btn-product-paid:hover { background: var(--rust-light); box-shadow: 0 8px 24px rgba(196,84,26,0.4); }
+  .btn-product-paid:hover { background: var(--rust-light); box-shadow: 0 8px 24px rgba(184,78,24,0.4); }
 
   .btn-product-coming {
     background: transparent;
     color: var(--gold);
-    border: 1px solid rgba(212,168,67,0.4);
+    border: 1px solid rgba(196,152,58,0.4);
   }
-  .btn-product-coming:hover { background: rgba(212,168,67,0.1); }
+  .btn-product-coming:hover { background: rgba(196,152,58,0.1); }
 
   /* ── WHY ──────────────────────────────────────────────── */
   .why {
-    background: rgba(196,84,26,0.06);
-    border-top: 1px solid rgba(196,84,26,0.15);
-    border-bottom: 1px solid rgba(196,84,26,0.15);
+    background: rgba(196,152,58,0.04);
+    border-top: 1px solid rgba(196,152,58,0.12);
+    border-bottom: 1px solid rgba(196,152,58,0.12);
   }
 
   .why-inner {
@@ -663,15 +639,12 @@
 
   .why-item {
     padding: 28px 24px;
-    background: rgba(245,240,232,0.03);
-    border: 1px solid rgba(245,240,232,0.08);
+    background: rgba(196,152,58,0.03);
+    border: 1px solid rgba(196,152,58,0.1);
     border-radius: 2px;
   }
 
-  .why-icon {
-    font-size: 24px;
-    margin-bottom: 14px;
-  }
+  .why-icon { font-size: 24px; margin-bottom: 14px; }
 
   .why-title {
     font-family: 'Playfair Display', serif;
@@ -695,8 +668,8 @@
   }
 
   .freebie-box {
-    background: rgba(26,71,49,0.2);
-    border: 1px solid rgba(39,174,96,0.25);
+    background: rgba(26,71,49,0.18);
+    border: 1px solid rgba(39,174,96,0.22);
     border-radius: 4px;
     padding: 60px;
     margin-top: 48px;
@@ -726,8 +699,8 @@
 
   .email-input {
     flex: 1;
-    background: rgba(245,240,232,0.08);
-    border: 1px solid rgba(245,240,232,0.2);
+    background: rgba(240,235,224,0.07);
+    border: 1px solid rgba(240,235,224,0.18);
     border-radius: 2px;
     padding: 14px 20px;
     font-family: 'DM Sans', sans-serif;
@@ -738,7 +711,7 @@
   }
 
   .email-input::placeholder { color: var(--mist); }
-  .email-input:focus { border-color: var(--jungle-mid); }
+  .email-input:focus { border-color: var(--gold); }
 
   .email-btn {
     background: var(--jungle);
@@ -758,9 +731,9 @@
 
   /* ── SERVICE ──────────────────────────────────────────── */
   .service-section {
-    background: rgba(196,84,26,0.04);
-    border-top: 1px solid rgba(196,84,26,0.12);
-    border-bottom: 1px solid rgba(196,84,26,0.12);
+    background: rgba(196,152,58,0.03);
+    border-top: 1px solid rgba(196,152,58,0.1);
+    border-bottom: 1px solid rgba(196,152,58,0.1);
   }
 
   .service-inner {
@@ -780,8 +753,8 @@
 
   .service-card {
     padding: 36px 32px;
-    background: rgba(245,240,232,0.03);
-    border: 1px solid rgba(245,240,232,0.08);
+    background: rgba(196,152,58,0.04);
+    border: 1px solid rgba(196,152,58,0.12);
     border-radius: 2px;
     display: flex;
     flex-direction: column;
@@ -801,7 +774,7 @@
   .service-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 20px 50px rgba(0,0,0,0.35);
-    border-color: rgba(212,168,67,0.25);
+    border-color: rgba(196,152,58,0.28);
   }
 
   .service-price {
@@ -881,7 +854,7 @@
 
   .btn-service:hover {
     background: var(--rust-light);
-    box-shadow: 0 8px 24px rgba(196,84,26,0.4);
+    box-shadow: 0 8px 24px rgba(184,78,24,0.4);
   }
 
   .service-note {
@@ -895,10 +868,286 @@
 
   .service-note strong { color: var(--sand); }
 
+  /* ── PARAGUAY PROFI ───────────────────────────────────── */
+  .profi-section {
+    padding: 100px 80px;
+    background: rgba(196,152,58,0.05);
+    border-top: 1px solid rgba(196,152,58,0.18);
+    border-bottom: 1px solid rgba(196,152,58,0.18);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .profi-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 50% 60% at 80% 50%, rgba(196,152,58,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .profi-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 80px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .profi-trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(196,152,58,0.12);
+    border: 1px solid rgba(196,152,58,0.3);
+    border-radius: 2px;
+    padding: 8px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 32px;
+  }
+
+  .profi-trust-badge::before {
+    content: '✓';
+    font-size: 13px;
+  }
+
+  .profi-endorsement {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-style: italic;
+    line-height: 1.65;
+    color: var(--sand);
+    border-left: 3px solid var(--gold);
+    padding-left: 24px;
+    margin-top: 36px;
+    margin-bottom: 8px;
+  }
+
+  .profi-endorsement cite {
+    display: block;
+    font-size: 13px;
+    font-style: normal;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--mist);
+    margin-top: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .profi-services {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .profi-service-item {
+    font-size: 14px;
+    color: var(--sand);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(196,152,58,0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .profi-service-item::before {
+    content: '→';
+    color: var(--gold);
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+
+  /* Form Box */
+  .profi-form-box {
+    background: rgba(13,24,40,0.9);
+    border: 1px solid rgba(196,152,58,0.25);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .profi-form-header {
+    padding: 32px 36px 28px;
+    border-bottom: 1px solid rgba(196,152,58,0.15);
+    background: rgba(196,152,58,0.06);
+  }
+
+  .profi-form-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .profi-form-header p {
+    font-size: 13px;
+    color: var(--mist);
+    line-height: 1.6;
+  }
+
+  .profi-form {
+    padding: 32px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .form-group label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(240,235,224,0.05);
+    border: 1px solid rgba(196,152,58,0.2);
+    border-radius: 2px;
+    padding: 13px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--white);
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: var(--mist);
+    opacity: 0.7;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+    background: rgba(196,152,58,0.05);
+  }
+
+  .form-group select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C4983A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+  }
+
+  .form-group select option {
+    background: #0D1828;
+    color: var(--white);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .btn-profi {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 16px 28px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.3px;
+    margin-top: 4px;
+    width: 100%;
+  }
+
+  .btn-profi:hover {
+    background: var(--gold-light);
+    box-shadow: 0 8px 28px rgba(196,152,58,0.3);
+    transform: translateY(-1px);
+  }
+
+  .btn-profi:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .form-disclaimer {
+    font-size: 11px;
+    color: var(--mist);
+    opacity: 0.7;
+    text-align: center;
+    line-height: 1.6;
+    margin-top: 4px;
+  }
+
+  /* Form success state */
+  .form-success {
+    display: none;
+    padding: 48px 36px;
+    text-align: center;
+  }
+
+  .form-success.visible { display: block; }
+
+  .success-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(196,152,58,0.15);
+    border: 1px solid rgba(196,152,58,0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 22px;
+  }
+
+  .form-success h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .form-success p {
+    font-size: 14px;
+    color: var(--mist);
+    line-height: 1.7;
+  }
+
   /* ── FOOTER ───────────────────────────────────────────── */
   footer {
     padding: 48px 80px;
-    border-top: 1px solid rgba(245,240,232,0.08);
+    border-top: 1px solid rgba(196,152,58,0.1);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -911,7 +1160,7 @@
     color: var(--white);
   }
 
-  .footer-logo span { color: var(--rust-light); }
+  .footer-logo span { color: var(--gold); }
 
   .footer-links {
     display: flex;
@@ -940,18 +1189,19 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  .hero-eyebrow { animation: fadeUp 0.6s ease 0.1s both; }
-  .hero-title   { animation: fadeUp 0.6s ease 0.2s both; }
-  .hero-subtitle{ animation: fadeUp 0.6s ease 0.3s both; }
-  .hero-body    { animation: fadeUp 0.6s ease 0.4s both; }
+  .hero-eyebrow  { animation: fadeUp 0.6s ease 0.1s both; }
+  .hero-title    { animation: fadeUp 0.6s ease 0.2s both; }
+  .hero-subtitle { animation: fadeUp 0.6s ease 0.3s both; }
+  .hero-body     { animation: fadeUp 0.6s ease 0.4s both; }
   .hero-cta-group{ animation: fadeUp 0.6s ease 0.5s both; }
-  .hero-right   { animation: fadeUp 0.6s ease 0.6s both; }
+  .hero-right    { animation: fadeUp 0.6s ease 0.6s both; }
 
   /* ── RESPONSIVE TABLET ───────────────────────────────── */
   @media (max-width: 1024px) {
     nav { padding: 16px 32px; }
     section { padding: 72px 32px; }
     #service { padding: 72px 32px !important; }
+    .profi-section { padding: 72px 32px; }
     .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 90px; }
     .hero-left { padding: 52px 32px 40px; }
     .hero-right { display: none; }
@@ -959,6 +1209,7 @@
     .products-grid { grid-template-columns: 1fr; gap: 24px; }
     .why-inner { grid-template-columns: 1fr; gap: 40px; }
     .service-inner { grid-template-columns: 1fr; gap: 40px; }
+    .profi-inner { grid-template-columns: 1fr; gap: 48px; }
     .why-grid { grid-template-columns: 1fr 1fr; }
     .email-form { flex-direction: column; }
     footer { flex-direction: column; gap: 20px; text-align: center; }
@@ -970,9 +1221,7 @@
   @media (max-width: 600px) {
     nav { padding: 14px 20px; }
     .nav-logo { font-size: 16px; }
-
     section { padding: 56px 20px; }
-
     .hero { padding-top: 70px; }
     .hero-left { padding: 40px 20px 32px; }
     .hero-title { font-size: 42px; line-height: 1.05; margin-bottom: 10px; }
@@ -980,7 +1229,6 @@
     .hero-body { font-size: 15px; margin-bottom: 32px; }
     .hero-cta-group { flex-direction: column; gap: 12px; }
     .btn-primary, .btn-secondary { width: 100%; justify-content: center; padding: 14px 24px; }
-
     .about-grid { gap: 32px; }
     .about-stats { grid-template-columns: 1fr 1fr; gap: 12px; }
     .stat-box { padding: 16px; }
@@ -988,7 +1236,6 @@
     .about-quote { font-size: 17px; padding-left: 18px; }
     .section-title { font-size: 32px; }
     .section-body { font-size: 15px; }
-
     .products-grid { grid-template-columns: 1fr; gap: 16px; }
     .product {
       padding: 28px 22px;
@@ -1002,11 +1249,9 @@
     .product-features { grid-column: unset; grid-row: unset; margin-bottom: 20px; }
     .product-footer { grid-column: unset; grid-row: unset; flex-direction: column; align-items: flex-start; gap: 14px; margin-top: 0; }
     .btn-product { width: 100%; justify-content: center; }
-
     .why-grid { grid-template-columns: 1fr; gap: 14px; }
     .why-inner { gap: 32px; }
     .why-item { padding: 20px 18px; }
-
     .freebie-cta { padding: 0; }
     .freebie-box { padding: 28px 20px; margin-top: 28px; }
     .freebie-box h3 { font-size: 24px; margin-bottom: 12px; }
@@ -1020,11 +1265,15 @@
     .service-features li { font-size: 13px; padding: 6px 0; }
     .btn-service { font-size: 14px; padding: 13px 20px; }
     #service { padding: 56px 20px !important; }
+    .profi-section { padding: 56px 20px; }
+    .profi-inner { gap: 36px; }
+    .profi-form-header { padding: 24px 22px 20px; }
+    .profi-form { padding: 24px 22px; gap: 14px; }
+    .form-row { grid-template-columns: 1fr; gap: 14px; }
+    .profi-endorsement { font-size: 16px; }
     .freebie-box iframe { min-height: 220px; }
-
     .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
     footer { padding: 36px 20px; }
-
     .section-label { font-size: 10px; letter-spacing: 3px; }
   }
 
@@ -1049,8 +1298,9 @@
     <li><a href="#ueber-mich">Über mich</a></li>
     <li><a href="#produkte">Guides</a></li>
     <li><a href="#service">Done for you</a></li>
+    <li><a href="#paraguay-profi">Paraguay Profi</a></li>
     <li><a href="#freebie">Gratis Guide</a></li>
-    <li><a href="#produkte" class="nav-cta">Jetzt kaufen</a></li>
+    <li><a href="#paraguay-profi" class="nav-cta">Jetzt anfragen</a></li>
   </ul>
 </nav>
 
@@ -1159,8 +1409,6 @@
 
   <div class="products-grid">
 
-    <!-- Reihe 1: Freebie Story + Auswanderguide -->
-
     <!-- Freebie 1 — Paraguay Story -->
     <div class="product product-free reveal">
       <span class="product-badge badge-free">Kostenlos</span>
@@ -1203,8 +1451,6 @@
       </div>
     </div>
 
-    <!-- Reihe 2: Freebie Business + Premium Paket -->
-
     <!-- Freebie 2 — Online Geld verdienen -->
     <div class="product product-free reveal">
       <span class="product-badge badge-free">Kostenlos</span>
@@ -1225,7 +1471,7 @@
       </div>
     </div>
 
-    <!-- Premium Paket — Vom Follower zum ersten Euro -->
+    <!-- Premium Paket -->
     <div class="product product-premium reveal">
       <span class="product-badge badge-premium">🚀 NEU — Launch-Preis</span>
       <h3 class="product-name">Vom Follower zum ersten Euro</h3>
@@ -1292,8 +1538,6 @@
 <!-- SERVICE -->
 <section id="service" class="service-section" style="padding: 100px 80px;">
   <div class="service-inner">
-
-    <!-- LEFT: Intro -->
     <div class="service-intro reveal">
       <div class="section-label">Done for you</div>
       <h2 class="section-title" style="font-size: 38px;">
@@ -1313,10 +1557,7 @@
       </div>
     </div>
 
-    <!-- RIGHT: 2 Cards -->
     <div class="service-grid reveal">
-
-      <!-- Paket A -->
       <div class="service-card">
         <div class="service-price">297 €</div>
         <div class="service-price-label">Einmalig</div>
@@ -1337,7 +1578,6 @@
         </a>
       </div>
 
-      <!-- Paket B -->
       <div class="service-card">
         <div class="service-price">697 €</div>
         <div class="service-price-label">Einmalig · Alles inklusive</div>
@@ -1358,7 +1598,234 @@
           Gespräch buchen →
         </a>
       </div>
+    </div>
+  </div>
+</section>
 
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- PARAGUAY PROFI — Empfehlung & Lead-Weiterleitung      -->
+<!-- ══════════════════════════════════════════════════════ -->
+
+<!--
+  SETUP-ANLEITUNG (einmalig, kostenlos):
+  1. Gehe auf formspree.io und erstelle ein kostenloses Konto
+  2. Klicke auf "New Form" und gib deine E-Mail-Adresse ein
+  3. Kopiere die Form-ID (sieht aus wie: xyzabcde)
+  4. Ersetze "DEINE_FORMSPREE_ID" weiter unten mit dieser ID
+  5. Push die Datei auf GitHub — fertig!
+  Jede Anfrage landet dann in deinem E-Mail-Postfach.
+-->
+
+<section id="paraguay-profi" class="profi-section">
+  <div class="profi-inner">
+
+    <!-- LEFT: Maxime's Endorsement -->
+    <div class="profi-left reveal">
+      <div class="section-label">Empfehlung & Partner</div>
+      <h2 class="section-title" style="font-size: 42px;">
+        Der Profi<br>der mir<br><em>geholfen hat.</em>
+      </h2>
+
+      <div class="profi-trust-badge">Persönlich genutzt & empfohlen</div>
+
+      <p class="section-body">
+        Ich habe den ParaguayProfi selbst während meiner Auswanderung genutzt —
+        für meine Residenz, die Cédula und alles was mich vor Ort überfordert hat.
+        Er ist der einzige Anbieter den ich aus eigener Erfahrung weiterempfehle.
+      </p>
+
+      <blockquote class="profi-endorsement">
+        „Ohne ihn hätte meine Auswanderung drei Mal so lange gedauert und doppelt so viel gekostet.
+        Ich kenne keinen der Paraguay besser kennt als er."
+        <cite>— Maxime, escape.deutschland</cite>
+      </blockquote>
+
+      <div class="profi-services">
+        <div class="profi-service-item">Visa & Residenz (Temporär & Permanent)</div>
+        <div class="profi-service-item">Cédula-Begleitung von A bis Z</div>
+        <div class="profi-service-item">Bankkonto & Unternehmensgründung</div>
+        <div class="profi-service-item">Behördengänge & Übersetzungen</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Lead Form -->
+    <div class="profi-right reveal">
+      <div class="profi-form-box">
+        <div class="profi-form-header">
+          <h3>Jetzt Anfrage stellen</h3>
+          <p>Füll das Formular aus — ich leite deine Anfrage direkt weiter.
+             Du hörst innerhalb von 48h vom ParaguayProfi.</p>
+        </div>
+
+        <!-- Formular — sichtbar bis Absenden -->
+        <div id="profi-form-container">
+          <form
+            id="profi-form"
+            class="profi-form"
+            action="https://formspree.io/f/DEINE_FORMSPREE_ID"
+            method="POST"
+          >
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Vorname *</label>
+                <input type="text" id="name" name="name" placeholder="Dein Vorname" required>
+              </div>
+              <div class="form-group">
+                <label for="nachname">Nachname *</label>
+                <input type="text" id="nachname" name="nachname" placeholder="Dein Nachname" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-Mail-Adresse *</label>
+              <input type="email" id="email" name="email" placeholder="deine@email.de" required>
+            </div>
+
+            <div class="form-group">
+              <label for="telefon">Telefon / WhatsApp</label>
+              <input type="tel" id="telefon" name="telefon" placeholder="+49 123 456789 (optional)">
+            </div>
+
+            <div class="form-group">
+              <label for="thema">Ich brauche Hilfe bei *</label>
+              <select id="thema" name="thema" required>
+                <option value="" disabled selected>Bitte auswählen…</option>
+                <option value="Visa & Residenz">Visa & Residenz</option>
+                <option value="Cédula">Cédula-Beantragung</option>
+                <option value="Bankkonto">Bankkonto eröffnen</option>
+                <option value="Unternehmensgründung">Unternehmensgründung</option>
+                <option value="Komplettbegleitung">Komplettbegleitung Auswanderung</option>
+                <option value="Sonstiges">Sonstiges / Bin noch unsicher</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="nachricht">Kurze Beschreibung</label>
+              <textarea id="nachricht" name="nachricht" placeholder="Was ist deine aktuelle Situation? Was planst du wann? Je mehr ich weiß, desto besser kann der ParaguayProfi helfen…"></textarea>
+            </div>
+
+            <!-- Tracking & E-Mail Routing -->
+            <input type="hidden" name="quelle" value="escape.deutschland — Landingpage">
+            <input type="hidden" name="_subject" value="🇵🇾 Neue Anfrage via escape.deutschland">
+            <!-- CC an Paraguay Profi: HIER seine E-Mail eintragen -->
+            <input type="hidden" name="_cc" value="EMAIL@PARAGUAYPROFI.COM">
+
+            <button type="submit" class="btn-profi" id="submit-btn">
+              Anfrage senden →
+            </button>
+
+            <p class="form-disclaimer">
+              Deine Daten werden ausschließlich zur Bearbeitung deiner Anfrage genutzt
+              und nicht an Dritte weitergegeben.
+            </p>
+          </form>
+        </div>
+
+        <!-- Erfolgs-Nachricht — erscheint nach Absenden -->
+        <div class="form-success" id="form-success">
+          <div class="success-icon">✓</div>
+          <h4>Anfrage eingegangen!</h4>
+          <p>
+            Ich habe deine Anfrage erhalten und leite sie direkt weiter.
+            Der ParaguayProfi meldet sich innerhalb von 48 Stunden bei dir.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Buch-Empfehlung -->
+  <div style="max-width: 1200px; margin: 56px auto 0; position: relative; z-index: 1;" class="reveal">
+    <div style="
+      background: rgba(196,152,58,0.07);
+      border: 1px solid rgba(196,152,58,0.3);
+      border-radius: 4px;
+      padding: 36px 40px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    ">
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold);"></div>
+
+      <div>
+        <div style="
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: rgba(196,152,58,0.12);
+          border: 1px solid rgba(196,152,58,0.3);
+          border-radius: 2px;
+          padding: 5px 14px;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          color: var(--gold);
+          margin-bottom: 18px;
+        ">📖 Buch — vom ParaguayProfi</div>
+
+        <h3 style="
+          font-family: 'Playfair Display', serif;
+          font-size: 22px;
+          font-weight: 700;
+          color: var(--white);
+          margin-bottom: 10px;
+          line-height: 1.3;
+        ">Investitionsmöglichkeiten in Paraguay</h3>
+
+        <p style="
+          font-size: 14px;
+          line-height: 1.75;
+          color: var(--mist);
+          max-width: 640px;
+        ">
+          Der Paraguay Profi hat sein gesamtes Wissen über Investitionsmöglichkeiten im Land
+          in einem Buch zusammengefasst — von Immobilien über Agrarland bis zu
+          Unternehmensbeteiligungen. Für alle die nicht nur auswandern, sondern ihr Kapital
+          intelligent einsetzen wollen.
+        </p>
+      </div>
+
+      <div style="text-align: center; flex-shrink: 0;">
+        <div style="
+          font-family: 'Playfair Display', serif;
+          font-size: 42px;
+          font-weight: 900;
+          color: var(--gold);
+          line-height: 1;
+          margin-bottom: 6px;
+        ">50 €</div>
+        <div style="
+          font-size: 11px;
+          color: var(--mist);
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          margin-bottom: 20px;
+        ">Einmalig</div>
+        <!-- HIER deinen Referral-Link vom Paraguay Profi eintragen -->
+        <a href="REFERRAL_LINK_HIER_EINTRAGEN" target="_blank" style="
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          background: var(--gold);
+          color: var(--ink);
+          font-family: 'DM Sans', sans-serif;
+          font-size: 14px;
+          font-weight: 700;
+          padding: 13px 28px;
+          border-radius: 2px;
+          text-decoration: none;
+          transition: all 0.2s ease;
+          white-space: nowrap;
+        " onmouseover="this.style.background='#DAAE55'" onmouseout="this.style.background='#C4983A'">
+          Jetzt kaufen →
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1404,12 +1871,13 @@
     <li><a href="https://instagram.com/escape.deutschland" target="_blank">Instagram</a></li>
     <li><a href="#produkte">Guides</a></li>
     <li><a href="#ueber-mich">Über mich</a></li>
+    <li><a href="#paraguay-profi">Paraguay Profi</a></li>
   </ul>
   <div class="footer-copy">© 2026 escape.deutschland · Alle Rechte vorbehalten</div>
 </footer>
 
 <script>
-  // Scroll reveal
+  // ── Scroll reveal ──────────────────────────────────────
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -1419,6 +1887,41 @@
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
+
+  // ── Paraguay Profi Form: AJAX Submit via Formspree ─────
+  const form = document.getElementById('profi-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const formContainer = document.getElementById('profi-form-container');
+  const successBox = document.getElementById('form-success');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Wird gesendet…';
+
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        // Formular ausblenden, Erfolg zeigen
+        formContainer.style.display = 'none';
+        successBox.classList.add('visible');
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Fehler — bitte nochmal versuchen';
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Fehler — bitte nochmal versuchen';
+    }
+  });
 </script>
 </body>
 </html>
