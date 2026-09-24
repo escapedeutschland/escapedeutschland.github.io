@@ -49,6 +49,19 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;flex-
 footer a{color:var(--sand);text-decoration:none}
 a:focus-visible{outline:2px solid var(--gold-l);outline-offset:3px}
 </style>
+<style>
+.iab{position:fixed;inset:0;background:rgba(4,8,16,.78);display:flex;align-items:flex-end;justify-content:center;z-index:50;padding:16px}
+.iab[hidden]{display:none}
+.iab .box{background:#0D1828;border:1px solid #233452;border-radius:12px;max-width:440px;width:100%;padding:22px 20px calc(20px + env(safe-area-inset-bottom,0px));color:#F0EBE0}
+.iab h3{font:700 21px 'Playfair Display',Georgia,serif;margin:0 0 8px}
+.iab p{margin:0 0 14px;color:#D9CFBA;font-size:15px}
+.iab ol{margin:0 0 16px;padding-left:20px;color:#F0EBE0;font-size:15px}
+.iab ol li{margin-bottom:6px}
+.iab .btn{display:block;width:100%;text-align:center}
+.iab ol li{display:list-item}
+.iab ol li::before{content:none}
+.iab .alt{display:block;text-align:center;margin-top:12px;color:#D9CFBA;font-size:14px}
+</style>
 </head>
 <body>
 <header><div class="wrap"><a class="logo" href="/">escape<span>.</span>deutschland</a><a class="ig" href="https://instagram.com/escape.deutschland" target="_blank" rel="noopener">@escape.deutschland</a></div></header>
@@ -76,13 +89,31 @@ a:focus-visible{outline:2px solid var(--gold-l);outline-offset:3px}
   <a class="btn ghost" href="/?thema=residenz">Erzähl mir von deinem Plan →</a>
 </div></section>
 <footer><div class="wrap"><span>© 2026 escape.deutschland · Maxime Christalle</span><a href="https://instagram.com/escape.deutschland" target="_blank" rel="noopener">Instagram</a></div></footer>
+<div class="iab" id="iab" hidden role="dialog" aria-modal="true" aria-labelledby="iab-t">
+  <div class="box">
+    <h3 id="iab-t">Kurz in deinem Browser öffnen</h3>
+    <p>Instagram erlaubt in seinem eigenen Browser keine Downloads. In deinem normalen Browser klappt es sofort.</p>
+    <a class="btn" id="iab-open" href="#">In <span id="iab-name">Safari</span> öffnen</a>
+    <ol style="margin-top:14px"><li>Falls der Button nichts tut: oben rechts auf <b>⋯</b> tippen</li><li><b>„Im externen Browser öffnen“</b> wählen</li><li>Dort auf <b>PDF herunterladen</b> tippen</li></ol>
+    <a class="alt" id="iab-view" href="#">PDF trotzdem hier ansehen</a>
+  </div>
+</div>
 <script>
 document.querySelectorAll('a.btn[download]').forEach(function(a){
   a.addEventListener('click',function(e){
     var ua=navigator.userAgent||'';
     var ios=/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
     var inApp=/Instagram|FBAN|FBAV|FB_IAB|Line\//.test(ua);
-    if(ios||inApp)return;
+    if(inApp){
+      e.preventDefault();
+      var page=location.href.split('#')[0];
+      var o=document.getElementById('iab-open');
+      if(ios){o.href='x-safari-'+page;document.getElementById('iab-name').textContent='Safari';}
+      else{o.href='intent://'+page.replace(/^https?:\/\//,'')+'#Intent;scheme=https;package=com.android.chrome;end';document.getElementById('iab-name').textContent='Chrome';}
+      document.getElementById('iab-view').href=a.getAttribute('href');
+      document.getElementById('iab').hidden=false;return;
+    }
+    if(ios)return;
     if(!window.fetch||!window.URL||!URL.createObjectURL)return;
     e.preventDefault();
     var href=a.getAttribute('href'),name=href.split('/').pop();
@@ -93,6 +124,7 @@ document.querySelectorAll('a.btn[download]').forEach(function(a){
     }).catch(function(){window.location.href=href;});
   });
 });
+document.getElementById('iab').addEventListener('click',function(e){if(e.target===this)this.hidden=true;});
 </script>
 </body>
 </html>
