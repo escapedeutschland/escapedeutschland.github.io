@@ -64,7 +64,7 @@ a:focus-visible{outline:2px solid var(--gold-l);outline-offset:3px}
       <a class="link" href="/sicher-kaufen-in-paraguay.pdf" target="_blank" rel="noopener">Im Browser ansehen</a>
     </div>
     <p class="meta">5 Seiten · Stand September 2026 · alle Angaben mit Quellen belegt</p>
-    <p class="meta" style="margin-top:6px">Auf dem iPhone: PDF öffnen, dann über das Teilen-Symbol „In Dateien sichern“ wählen.</p>
+    <p class="meta" style="margin-top:6px">Auf dem iPhone öffnet sich das PDF. Zum Speichern tippst du auf das Teilen-Symbol und wählst „In Dateien sichern“.</p>
   </div>
 </div></main>
 <section class="next"><div class="wrap">
@@ -79,6 +79,10 @@ a:focus-visible{outline:2px solid var(--gold-l);outline-offset:3px}
 <script>
 document.querySelectorAll('a.btn[download]').forEach(function(a){
   a.addEventListener('click',function(e){
+    var ua=navigator.userAgent||'';
+    var ios=/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+    var inApp=/Instagram|FBAN|FBAV|FB_IAB|Line\//.test(ua);
+    if(ios||inApp)return;
     if(!window.fetch||!window.URL||!URL.createObjectURL)return;
     e.preventDefault();
     var href=a.getAttribute('href'),name=href.split('/').pop();
