@@ -73,11 +73,11 @@ a:focus-visible{outline:2px solid var(--gold-l);outline-offset:3px}
     <p class="lead">Alle Unterlagen, Kosten und Fristen für Deutsche. Nach den neuen Regeln der Migrationsbehörde, gültig seit Juli 2026.</p>
     <ul><li>Checkliste aller Unterlagen aus Deutschland und Paraguay</li><li>Alle amtlichen Gebühren in Guaraní und Euro</li><li>Die 12 neuen Kategorien für die dauerhafte Residenz</li><li>Die 7 Fehler, die dich Monate kosten</li></ul>
     <div class="btns">
-      <a class="btn" href="/checkliste-residenz-paraguay-2026.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>PDF herunterladen</a>
+      <a class="btn" href="https://raw.githubusercontent.com/escapedeutschland/escapedeutschland.github.io/main/checkliste-residenz-paraguay-2026.pdf" data-view="/checkliste-residenz-paraguay-2026.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>PDF herunterladen</a>
       <a class="link" href="/checkliste-residenz-paraguay-2026.pdf" target="_blank" rel="noopener">Im Browser ansehen</a>
     </div>
     <p class="meta">7 Seiten · Stand September 2026 · alle Angaben mit Quellen belegt</p>
-    <p class="meta" style="margin-top:6px">Auf dem iPhone öffnet sich das PDF. Zum Speichern tippst du auf das Teilen-Symbol und wählst „In Dateien sichern“.</p>
+    <p class="meta" style="margin-top:6px">Auf dem iPhone landet das PDF in der Dateien-App unter „Downloads“.</p>
   </div>
 </div></main>
 <section class="next"><div class="wrap">
@@ -110,18 +110,10 @@ document.querySelectorAll('a.btn[download]').forEach(function(a){
       var o=document.getElementById('iab-open');
       if(ios){o.href='x-safari-'+page;document.getElementById('iab-name').textContent='Safari';}
       else{o.href='intent://'+page.replace(/^https?:\/\//,'')+'#Intent;scheme=https;package=com.android.chrome;end';document.getElementById('iab-name').textContent='Chrome';}
-      document.getElementById('iab-view').href=a.getAttribute('href');
+      document.getElementById('iab-view').href=a.getAttribute('data-view');
       document.getElementById('iab').hidden=false;return;
     }
-    if(ios)return;
-    if(!window.fetch||!window.URL||!URL.createObjectURL)return;
-    e.preventDefault();
-    var href=a.getAttribute('href'),name=href.split('/').pop();
-    fetch(href).then(function(r){if(!r.ok)throw 0;return r.blob();}).then(function(b){
-      var u=URL.createObjectURL(new Blob([b],{type:'application/octet-stream'}));
-      var t=document.createElement('a');t.href=u;t.download=name;document.body.appendChild(t);t.click();
-      setTimeout(function(){URL.revokeObjectURL(u);t.remove();},4000);
-    }).catch(function(){window.location.href=href;});
+    // sonst: normaler Link, der Server liefert die Datei als Download aus
   });
 });
 document.getElementById('iab').addEventListener('click',function(e){if(e.target===this)this.hidden=true;});
