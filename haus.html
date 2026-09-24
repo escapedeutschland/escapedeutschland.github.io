@@ -64,16 +64,31 @@ a:focus-visible{outline:2px solid var(--gold-l);outline-offset:3px}
       <a class="link" href="/sicher-kaufen-in-paraguay.pdf" target="_blank" rel="noopener">Im Browser ansehen</a>
     </div>
     <p class="meta">5 Seiten · Stand September 2026 · alle Angaben mit Quellen belegt</p>
+    <p class="meta" style="margin-top:6px">Auf dem iPhone: PDF öffnen, dann über das Teilen-Symbol „In Dateien sichern“ wählen.</p>
   </div>
 </div></main>
 <section class="next"><div class="wrap">
   <div>
     <div class="eyebrow">Dein nächster Schritt</div>
-    <h2>Lass die Profis vor Ort prüfen.</h2>
-    <p>Ich verbinde dich mit geprüften, seriösen Maklern, die Deutsch sprechen, die Region kennen und mit Escribano und Titelprüfung arbeiten.</p>
+    <h2>Du planst einen Kauf?</h2>
+    <p>Erzähl mir kurz, was du suchst, wo und mit welchem Budget. Dann schauen wir gemeinsam, wie ich dir beim nächsten Schritt weiterhelfen kann.</p>
   </div>
   <a class="btn ghost" href="/?thema=haus">Erzähl mir von deinem Plan →</a>
 </div></section>
 <footer><div class="wrap"><span>© 2026 escape.deutschland · Maxime Christalle</span><a href="https://instagram.com/escape.deutschland" target="_blank" rel="noopener">Instagram</a></div></footer>
+<script>
+document.querySelectorAll('a.btn[download]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    if(!window.fetch||!window.URL||!URL.createObjectURL)return;
+    e.preventDefault();
+    var href=a.getAttribute('href'),name=href.split('/').pop();
+    fetch(href).then(function(r){if(!r.ok)throw 0;return r.blob();}).then(function(b){
+      var u=URL.createObjectURL(new Blob([b],{type:'application/octet-stream'}));
+      var t=document.createElement('a');t.href=u;t.download=name;document.body.appendChild(t);t.click();
+      setTimeout(function(){URL.revokeObjectURL(u);t.remove();},4000);
+    }).catch(function(){window.location.href=href;});
+  });
+});
+</script>
 </body>
 </html>
