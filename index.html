@@ -130,7 +130,7 @@
 
 <nav class="nav"><div class="wrap">
   <a href="#top" class="logo">escape<span>.</span>deutschland</a>
-  <a href="#anfrage" class="btn small">Erzähl mir von deinem Plan</a>
+  <a href="#anfrage" class="btn small">Kostenloses Erstgespräch</a>
 </div></nav>
 
 <header class="hero" id="top"><div class="wrap">
@@ -138,7 +138,7 @@
     <div class="eyebrow">@escape.deutschland · Paraguay</div>
     <h1>Raus aus Deutschland.<br><em>Rein ins Leben.</em></h1>
     <p class="lead">Ich begleite dich beim Start in Paraguay, mit unseren geprüften Experten vor Ort. Seriös, transparent und auf Deutsch.</p>
-    <a href="#anfrage" class="btn">Erzähl mir von deinem Plan →</a>
+    <a href="#anfrage" class="btn">Kostenloses Erstgespräch anfragen →</a>
   </div>
   <p class="me">Ich bin Maxime. Im Januar 2026 habe ich alles verkauft und bin nach Paraguay ausgewandert, nach <strong>nur 2 Monaten Vorbereitung</strong>. Heute lebe ich hier und helfe anderen Deutschen, diesen Schritt sicher zu gehen.</p>
 </div></header>
@@ -166,8 +166,8 @@
   <div class="eyebrow">So läuft es ab</div>
   <h2>In drei Schritten zu deinem Start</h2>
   <ol class="steps">
-    <li><b>Erzähl mir von deinem Plan</b><p>Das Formular dauert zwei Minuten. Je genauer du schreibst, desto besser kann ich helfen.</p></li>
-    <li><b>Du bekommst deinen Experten</b><p>Ich stelle dich dem passenden Experten vor, und er meldet sich direkt bei dir.</p></li>
+    <li><b>Erzähl mir kurz, worum es geht</b><p>Das Formular dauert eine Minute. Du musst noch nichts genau wissen.</p></li>
+    <li><b>Kostenloses Erstgespräch</b><p>Ich stelle dich dem passenden Experten vor. Er meldet sich direkt bei dir und berät dich im ersten Gespräch kostenlos und unverbindlich.</p></li>
     <li><b>Wir setzen deinen Start um</b><p>Unsere Experten erledigen die Arbeit, ich bleibe dein Ansprechpartner und frage nach, ob alles läuft.</p></li>
   </ol>
 </div></section>
@@ -175,12 +175,12 @@
 <section class="block" id="anfrage"><div class="wrap form-wrap">
   <div class="aside">
     <div class="eyebrow">Deine Anfrage</div>
-    <h2>Erzähl mir von deinem Plan</h2>
-    <p>Kein Verkaufsgespräch. Erzähl mir, wo du stehst, und ich bringe dich mit dem richtigen Experten zusammen.</p>
+    <h2>Kostenlose Erstberatung durch einen Experten</h2>
+    <p>Erzähl mir kurz, worum es geht. Ich stelle dich persönlich dem passenden deutschsprachigen Experten vor, und er meldet sich bei dir für ein kostenloses Erstgespräch.</p>
     <div class="promise">
-      <div>Persönliche Vorstellung beim passenden Experten</div>
+      <div>Kostenloses Erstgespräch mit dem passenden Experten</div>
       <div>Geprüfte Experten, alles auf Deutsch</div>
-      <div>Für dich kostenlos und unverbindlich</div>
+      <div>Unverbindlich und ohne Verkaufsdruck</div>
     </div>
   </div>
 
@@ -191,93 +191,37 @@
         <div class="chips" id="chips"></div>
       </fieldset>
 
-      <div class="sub-box" id="haus-box" hidden>
-        <div class="t">Zu Haus oder Grundstück</div>
-        <div class="row">
-          <div><label class="l" for="immobilie">Kaufen oder mieten?</label>
-            <select id="immobilie" name="immobilie">
-              <option value="Kaufen">Kaufen</option>
-              <option value="Mieten">Mieten</option>
-              <option value="Noch offen">Noch offen</option>
-            </select></div>
-          <div><label class="l" for="zweck">Wofür?</label>
-            <select id="zweck" name="zweck">
-              <option value="Selbst wohnen">Selbst wohnen</option>
-              <option value="Vermieten / Investment">Vermieten oder Investment</option>
-              <option value="Noch offen">Noch offen</option>
-            </select></div>
-        </div>
-        <div class="row">
-          <div><label class="l" for="region">Wo in Paraguay?</label>
-            <select id="region" name="region">
-              <option value="Noch offen">Noch offen</option>
-              <option value="Asunción und Umgebung">Asunción und Umgebung</option>
-              <option value="Cordillera (San Bernardino, Altos, Caacupé)">Cordillera (San Bernardino, Altos, Caacupé)</option>
-              <option value="Süden (Encarnación)">Süden (Encarnación)</option>
-              <option value="Andere Region">Andere Region</option>
-            </select></div>
-          <div id="budget-group"><label class="l" for="budget">Ungefähres Budget (freiwillig) – damit dir nur passende Angebote gezeigt werden</label>
-            <select id="budget" name="budget">
-              <option value="Keine Angabe">Keine Angabe</option>
-              <option value="bis 50.000 USD">bis 50.000 USD</option>
-              <option value="50.000–150.000 USD">50.000–150.000 USD</option>
-              <option value="150.000–300.000 USD">150.000–300.000 USD</option>
-              <option value="über 300.000 USD">über 300.000 USD</option>
-            </select></div>
-        </div>
-      </div>
-
       <div class="row">
         <div><label class="l" for="name">Vorname *</label><input type="text" id="name" name="name" autocomplete="given-name" required></div>
-        <div><label class="l" for="nachname">Nachname *</label><input type="text" id="nachname" name="nachname" autocomplete="family-name" required></div>
-      </div>
-      <div class="row">
         <div><label class="l" for="email">E-Mail *</label><input type="email" id="email" name="email" autocomplete="email" placeholder="name@gmx.de" required></div>
-        <div><label class="l" for="telefon">WhatsApp (optional)</label><input type="tel" id="telefon" name="telefon" autocomplete="tel" placeholder="+49 …"></div>
       </div>
       <div class="row">
-        <div><label class="l" for="zeitplan">Wann willst du auswandern? *</label>
-          <select id="zeitplan" name="zeitplan" required>
-            <option value="" disabled selected>Bitte wählen…</option>
+        <div><label class="l" for="telefon">WhatsApp (optional)</label><input type="tel" id="telefon" name="telefon" autocomplete="tel" placeholder="+49 …"></div>
+        <div><label class="l" for="zeitplan">Wann ungefähr? (optional)</label>
+          <select id="zeitplan" name="zeitplan">
+            <option value="">Bitte wählen…</option>
             <option>In den nächsten 6 Monaten</option>
             <option>In 6 bis 12 Monaten</option>
             <option>In mehr als 12 Monaten</option>
             <option>Ich bin schon in Paraguay</option>
             <option>Noch unsicher</option>
           </select></div>
-        <div><label class="l" for="haushalt">Wer kommt mit? *</label>
-          <select id="haushalt" name="haushalt" required>
-            <option value="" disabled selected>Bitte wählen…</option>
-            <option>Allein</option>
-            <option value="Paar">Als Paar</option>
-            <option>Familie mit Kindern</option>
-          </select></div>
       </div>
-      <div id="kinder-group" hidden><label class="l" for="kinder">Wie viele Kinder?</label><input type="number" id="kinder" name="kinder" min="1" max="12" placeholder="z. B. 2"></div>
-      <div><label class="l" for="einkommen">Dein Haupteinkommen *</label>
-        <select id="einkommen" name="einkommen" required>
-          <option value="" disabled selected>Bitte wählen…</option>
-          <option>Rente / Pension</option>
-          <option>Angestellt (remote)</option>
-          <option>Selbständig / Unternehmer</option>
-          <option>Kapitalerträge / Vermögen</option>
-          <option>Anderes</option>
-        </select></div>
-      <div><label class="l" for="nachricht">Erzähl mir kurz von dir</label>
-        <textarea id="nachricht" name="nachricht" placeholder="Was ist deine Situation, was hast du vor, was beschäftigt dich gerade am meisten?"></textarea></div>
+      <div><label class="l" for="nachricht">Was beschäftigt dich gerade am meisten? (optional)</label>
+        <textarea id="nachricht" name="nachricht" placeholder="Zum Beispiel: Ich plane den Umzug mit meiner Familie und weiß nicht, wo ich anfangen soll."></textarea></div>
 
       <label class="consent"><input type="checkbox" id="einwilligung" name="einwilligung" required>
         <span>Ich bin einverstanden, dass Maxime (escape.deutschland) meine Angaben speichert, mich dazu kontaktiert und sie zur Bearbeitung an einen geprüften Fachpartner aus seinem Netzwerk in Paraguay weitergibt (z. B. Immobilienmakler oder Residenz-Helfer). Ich kann das jederzeit widerrufen. Mehr in der <a href="datenschutz.html">Datenschutzerklärung</a>. *</span></label>
 
       <p class="err" id="err" hidden></p>
-      <button type="submit" class="btn" id="submit-btn">Anfrage senden →</button>
-      <p class="fineprint">Die Anfrage ist für dich kostenlos und unverbindlich.</p>
+      <button type="submit" class="btn" id="submit-btn">Kostenloses Erstgespräch anfragen →</button>
+      <p class="fineprint">Kostenlos und unverbindlich. Der passende Experte meldet sich direkt bei dir.</p>
     </form>
 
     <div class="success" id="success" hidden>
       <div class="ic">✓</div>
       <h3 id="success-title">Danke!</h3>
-      <p>Deine Anfrage ist angekommen. Ich stelle dich per Mail dem passenden Experten vor, und er meldet sich direkt bei dir.</p>
+      <p>Deine Anfrage ist angekommen. Ich stelle dich per Mail dem passenden Experten vor, und er meldet sich für dein kostenloses Erstgespräch direkt bei dir.</p>
       <p class="draft-note" id="draft-note" hidden>Entwurfsansicht: Es wurde nichts gesendet.</p>
     </div>
   </div>
@@ -348,22 +292,12 @@
   l.innerHTML=`<input type="checkbox" name="themen" value="unsicher"><span>Weiß ich noch nicht</span>`;
   chips.appendChild(l);
 
-  const hausBox=document.getElementById("haus-box"), immo=document.getElementById("immobilie"), budgetGroup=document.getElementById("budget-group");
-  function sync(){
-    const haus=!!chips.querySelector('input[value="haus"]:checked');
-    hausBox.hidden=!haus;
-    budgetGroup.hidden=immo.value!=="Kaufen";
-  }
-  function waehle(id){ const c=chips.querySelector(`input[value="${id}"]`); if(c){c.checked=true; sync();} }
-  chips.addEventListener("change",sync); immo.addEventListener("change",sync);
+  function waehle(id){ const c=chips.querySelector(`input[value="${id}"]`); if(c){c.checked=true;} }
 
   // ?thema=haus usw. aus Reels/Stories
   const p=new URLSearchParams(location.search).get("thema");
   if(p) waehle(p.toLowerCase());
-  sync();
 
-  const haushalt=document.getElementById("haushalt"), kinderGroup=document.getElementById("kinder-group");
-  haushalt.addEventListener("change",()=>{kinderGroup.hidden=haushalt.value!=="Familie mit Kindern"});
 
   const form=document.getElementById("lead-form"), btn=document.getElementById("submit-btn"), err=document.getElementById("err");
   function fehler(msg,el){ err.textContent=msg; err.hidden=false; if(el) el.focus(); }
@@ -372,7 +306,7 @@
     e.preventDefault(); err.hidden=true;
     const gewaehlt=[...chips.querySelectorAll("input:checked")].map(i=>i.value);
     if(!gewaehlt.length) return fehler("Bitte wähl mindestens ein Thema aus.",chips.querySelector("input"));
-    for(const id of ["name","nachname","email","zeitplan","haushalt","einkommen"]){
+    for(const id of ["name","email"]){
       const el=document.getElementById(id);
       if(!el.value.trim()) return fehler("Bitte füll alle Felder mit * aus.",el);
     }
@@ -384,21 +318,15 @@
 
     const d=Object.fromEntries(new FormData(form).entries());
     const namen=gewaehlt.map(id=>id==="unsicher"?"Weiß ich noch nicht":(THEMEN.find(t=>t.id===id)||{}).titel);
-    const haus=gewaehlt.includes("haus");
     const json={
-      name:d.name, nachname:d.nachname, email:mail, telefon:d.telefon||"",
+      name:d.name, nachname:"", email:mail, telefon:d.telefon||"",
       themen:gewaehlt.join(","), thema:namen.join(", "),
-      zeitplan:d.zeitplan, haushalt:d.haushalt, kinder:d.kinder||"", einkommen:d.einkommen,
-      immobilie: haus ? d.immobilie : "Nein / noch nicht",
-      budget: haus && d.immobilie==="Kaufen" ? d.budget : "",
-      zweck: haus ? d.zweck : "", region: haus ? d.region : "",
+      zeitplan:d.zeitplan||"", haushalt:"", kinder:"", einkommen:"",
+      immobilie:"", budget:"", zweck:"", region:"",
       einwilligung:"ja, "+new Date().toISOString(),
-      quelle:"escape.deutschland — Landingpage v2"+(p?" · thema="+p:"")
+      quelle:"escape.deutschland — Landingpage v3 (Erstgespräch)"+(p?" · thema="+p:"")
     };
-    const wer=json.haushalt==="Familie mit Kindern"&&json.kinder?`Familie mit ${json.kinder} ${json.kinder==="1"?"Kind":"Kindern"}`:json.haushalt;
-    json.nachricht=`Themen: ${json.thema}\nZeitplan: ${json.zeitplan}\nWer kommt mit: ${wer}\nHaupteinkommen: ${json.einkommen}\n`+
-      (haus?`Immobilie: ${json.immobilie} · ${json.zweck} · ${json.region}${json.budget?" · "+json.budget:""}\n`:"")+
-      `\n${d.nachricht||""}`;
+    json.nachricht=`Themen: ${json.thema}\nZeitplan: ${json.zeitplan||"keine Angabe"}\n\n${d.nachricht||""}`;
 
     btn.disabled=true; btn.textContent="Wird gesendet…";
     try{
@@ -413,7 +341,7 @@
       document.getElementById("success-title").textContent=`Danke, ${json.name}!`;
       document.getElementById("success").hidden=false;
     }catch(x){
-      btn.disabled=false; btn.textContent="Anfrage senden →";
+      btn.disabled=false; btn.textContent="Kostenloses Erstgespräch anfragen →";
       fehler("Das hat nicht geklappt. Bitte versuch es noch einmal oder schreib mir auf Instagram.");
     }
   });
